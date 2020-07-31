@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.july.pet.dao.PetMapper">
+  <resultMap id="BaseResultMap" type="com.july.pet.entity.PetDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="gmt_create" jdbcType="DATE" property="gmtCreate" />
+    <result column="gmt_update" jdbcType="DATE" property="gmtUpdate" />
+    <result column="creator" jdbcType="BIGINT" property="creator" />
+    <result column="updater" jdbcType="BIGINT" property="updater" />
+    <result column="deleted" jdbcType="TINYINT" property="deleted" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="gender" jdbcType="BIT" property="gender" />
+    <result column="children" jdbcType="INTEGER" property="children" />
+    <result column="vaccine" jdbcType="INTEGER" property="vaccine" />
+    <result column="repellent" jdbcType="BIT" property="repellent" />
+    <result column="sterilization" jdbcType="BIT" property="sterilization" />
+    <result column="bear" jdbcType="BIT" property="bear" />
+    <result column="img_urls" jdbcType="VARCHAR" property="imgUrls" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, gmt_create, gmt_update, creator, updater, deleted, nick_name, brand, gender, 
+    children, vaccine, repellent, sterilization, bear, img_urls
+  </sql>
+  <select id="selectByExample" parameterType="com.july.pet.entity.PetExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_pet
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_pet
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_pet
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.july.pet.entity.PetExample">
+    delete from t_pet
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.july.pet.entity.PetDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_pet (gmt_create, gmt_update, creator, 
+      updater, deleted, nick_name, 
+      brand, gender, children, 
+      vaccine, repellent, sterilization, 
+      bear, img_urls)
+    values (#{gmtCreate,jdbcType=DATE}, #{gmtUpdate,jdbcType=DATE}, #{creator,jdbcType=BIGINT}, 
+      #{updater,jdbcType=BIGINT}, #{deleted,jdbcType=TINYINT}, #{nickName,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, #{children,jdbcType=INTEGER}, 
+      #{vaccine,jdbcType=INTEGER}, #{repellent,jdbcType=BIT}, #{sterilization,jdbcType=BIT}, 
+      #{bear,jdbcType=BIT}, #{imgUrls,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.july.pet.entity.PetDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_pet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtUpdate != null">
+        gmt_update,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="brand != null">
+        brand,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="children != null">
+        children,
+      </if>
+      <if test="vaccine != null">
+        vaccine,
+      </if>
+      <if test="repellent != null">
+        repellent,
+      </if>
+      <if test="sterilization != null">
+        sterilization,
+      </if>
+      <if test="bear != null">
+        bear,
+      </if>
+      <if test="imgUrls != null">
+        img_urls,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=DATE},
+      </if>
+      <if test="gmtUpdate != null">
+        #{gmtUpdate,jdbcType=DATE},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=BIGINT},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="children != null">
+        #{children,jdbcType=INTEGER},
+      </if>
+      <if test="vaccine != null">
+        #{vaccine,jdbcType=INTEGER},
+      </if>
+      <if test="repellent != null">
+        #{repellent,jdbcType=BIT},
+      </if>
+      <if test="sterilization != null">
+        #{sterilization,jdbcType=BIT},
+      </if>
+      <if test="bear != null">
+        #{bear,jdbcType=BIT},
+      </if>
+      <if test="imgUrls != null">
+        #{imgUrls,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.july.pet.entity.PetExample" resultType="java.lang.Long">
+    select count(*) from t_pet
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_pet
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=DATE},
+      </if>
+      <if test="record.gmtUpdate != null">
+        gmt_update = #{record.gmtUpdate,jdbcType=DATE},
+      </if>
+      <if test="record.creator != null">
+        creator = #{record.creator,jdbcType=BIGINT},
+      </if>
+      <if test="record.updater != null">
+        updater = #{record.updater,jdbcType=BIGINT},
+      </if>
+      <if test="record.deleted != null">
+        deleted = #{record.deleted,jdbcType=TINYINT},
+      </if>
+      <if test="record.nickName != null">
+        nick_name = #{record.nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brand != null">
+        brand = #{record.brand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null">
+        gender = #{record.gender,jdbcType=BIT},
+      </if>
+      <if test="record.children != null">
+        children = #{record.children,jdbcType=INTEGER},
+      </if>
+      <if test="record.vaccine != null">
+        vaccine = #{record.vaccine,jdbcType=INTEGER},
+      </if>
+      <if test="record.repellent != null">
+        repellent = #{record.repellent,jdbcType=BIT},
+      </if>
+      <if test="record.sterilization != null">
+        sterilization = #{record.sterilization,jdbcType=BIT},
+      </if>
+      <if test="record.bear != null">
+        bear = #{record.bear,jdbcType=BIT},
+      </if>
+      <if test="record.imgUrls != null">
+        img_urls = #{record.imgUrls,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_pet
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_create = #{record.gmtCreate,jdbcType=DATE},
+      gmt_update = #{record.gmtUpdate,jdbcType=DATE},
+      creator = #{record.creator,jdbcType=BIGINT},
+      updater = #{record.updater,jdbcType=BIGINT},
+      deleted = #{record.deleted,jdbcType=TINYINT},
+      nick_name = #{record.nickName,jdbcType=VARCHAR},
+      brand = #{record.brand,jdbcType=VARCHAR},
+      gender = #{record.gender,jdbcType=BIT},
+      children = #{record.children,jdbcType=INTEGER},
+      vaccine = #{record.vaccine,jdbcType=INTEGER},
+      repellent = #{record.repellent,jdbcType=BIT},
+      sterilization = #{record.sterilization,jdbcType=BIT},
+      bear = #{record.bear,jdbcType=BIT},
+      img_urls = #{record.imgUrls,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.july.pet.entity.PetDO">
+    update t_pet
+    <set>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=DATE},
+      </if>
+      <if test="gmtUpdate != null">
+        gmt_update = #{gmtUpdate,jdbcType=DATE},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=BIGINT},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=BIT},
+      </if>
+      <if test="children != null">
+        children = #{children,jdbcType=INTEGER},
+      </if>
+      <if test="vaccine != null">
+        vaccine = #{vaccine,jdbcType=INTEGER},
+      </if>
+      <if test="repellent != null">
+        repellent = #{repellent,jdbcType=BIT},
+      </if>
+      <if test="sterilization != null">
+        sterilization = #{sterilization,jdbcType=BIT},
+      </if>
+      <if test="bear != null">
+        bear = #{bear,jdbcType=BIT},
+      </if>
+      <if test="imgUrls != null">
+        img_urls = #{imgUrls,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.july.pet.entity.PetDO">
+    update t_pet
+    set gmt_create = #{gmtCreate,jdbcType=DATE},
+      gmt_update = #{gmtUpdate,jdbcType=DATE},
+      creator = #{creator,jdbcType=BIGINT},
+      updater = #{updater,jdbcType=BIGINT},
+      deleted = #{deleted,jdbcType=TINYINT},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=BIT},
+      children = #{children,jdbcType=INTEGER},
+      vaccine = #{vaccine,jdbcType=INTEGER},
+      repellent = #{repellent,jdbcType=BIT},
+      sterilization = #{sterilization,jdbcType=BIT},
+      bear = #{bear,jdbcType=BIT},
+      img_urls = #{imgUrls,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

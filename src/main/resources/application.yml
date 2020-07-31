@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /pet
+
+spring:
+  profiles:
+    active: dev
