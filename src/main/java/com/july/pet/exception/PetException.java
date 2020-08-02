@@ -1,7 +1,6 @@
 package com.july.pet.exception;
 
 
-import com.july.pet.common.BaseEnum;
 import com.july.pet.common.PetExceptionEnum;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,5 +20,10 @@ public class PetException extends RuntimeException {
     public PetException(PetExceptionEnum exceptionEnum) {
         super(exceptionEnum.getMessage());
         this.code = exceptionEnum.getCode();
+    }
+
+    public PetException(Integer code, String msg) {
+        super(msg);
+        this.code = code;
     }
 }

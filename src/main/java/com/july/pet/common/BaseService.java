@@ -1,8 +1,10 @@
 package com.july.pet.common;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.july.pet.exception.PetException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -19,6 +21,7 @@ import java.util.List;
  * @date: 2020/7/31 14:11
  * @description:
  */
+@Slf4j
 public class BaseService<BO extends BaseBO, DO extends BaseDO, Converter extends BaseConverter, Mapper extends BaseMapper> implements BeanFactoryAware, InitializingBean {
 
     @Autowired
@@ -78,13 +81,18 @@ public class BaseService<BO extends BaseBO, DO extends BaseDO, Converter extends
         return findById(d.getId());
     }
 
-    public int remove(long id) throws IllegalAccessException, InstantiationException {
-        BaseDO baseDO = (BaseDO) boClazz.newInstance();
-        baseDO.setId(id);
-        Date date = new Date();
-        baseDO.setGmtUpdate(date);
-        baseDO.setDeleted(true);
-        return mapper.updateByPrimaryKeySelective(baseDO);
+    public int remove(long id) {
+        try {
+            BaseDO baseDO = (BaseDO) boClazz.newInstance();
+            baseDO.setId(id);
+            Date date = new Date();
+            baseDO.setGmtUpdate(date);
+            baseDO.setDeleted(true);
+            return mapper.updateByPrimaryKeySelective(baseDO);
+        } catch (Exception e) {
+            log.error("remove error : " +JSON.toJSONString(e));
+            throw new PetException(PetExceptionEnum.DB_REMOVE_ERROR);
+        }
     }
 
     public BO findById(long id) {
