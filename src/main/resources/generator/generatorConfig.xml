@@ -43,7 +43,7 @@
             <!--<generatedKey column="id" sqlStatement="MySql" identity="true" />-->
         <!--</table>-->
 
-        <table tableName="t_pet"  domainObjectName="Pet">
+        <table tableName="t_purchase_history"  domainObjectName="PurchaseHistory">
             <generatedKey column="id" sqlStatement="MySql" identity="true" />
         </table>
 

@@ -9,7 +9,7 @@ import java.util.List;
  * @date: 2020/7/31 14:17
  * @description:
  */
-public interface BaseMapper<DO extends BaseDO,Example> {
+public interface BaseMapper<DO extends BaseDO,Example extends BaseExample> {
     long countByExample(Example example);
 
     int deleteByExample(Example example);

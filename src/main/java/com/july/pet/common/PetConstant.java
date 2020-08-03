@@ -18,19 +18,24 @@ public class PetConstant {
     public static final int FAIL_CODE = 10000;
 
 
-    public static final int DB_INSERT_ERROR =10001;
+    public static final int DB_INSERT_ERROR = 10001;
 
-    public static final int DB_UPDATE_ERROR =10002;
+    public static final int DB_UPDATE_ERROR = 10002;
 
-    public static final int DATA_NOT_EXISTS =10003;
+    public static final int DATA_NOT_EXISTS = 10003;
 
-    public static final int DATA_NOT_BE_NULL =10004;
+    public static final int DATA_NOT_BE_NULL = 10004;
 
-    public static final int DB_REMOVE_ERROR =10005;
+    public static final int DB_REMOVE_ERROR = 10005;
+
+    public static final int GOODS_NOT_EXISTS = 20005;
+
+    public static final int DATA_DUPLICATE = 10004;
 
     /**
      * 最大分页条数
      */
     public static final int MAX_PAGE_SIZE = 2000;
 
+    public static final double ONE_POINT_FOUR = 1.4;
 }

@@ -7,9 +7,9 @@ import com.july.pet.dto.QueryPetDTO;
 import com.july.pet.form.CreatePetForm;
 import com.july.pet.form.UpdatePetForm;
 import com.july.pet.service.PetService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,14 +18,15 @@ import org.springframework.web.bind.annotation.*;
  * @date: 2020/7/31 11:01
  * @description: 宠物api
  */
-@Controller
+@Api("宠物信息")
+@RestController
 @RequestMapping("pet")
 public class PetController {
+
     @Autowired
     private PetService petService;
 
     @GetMapping("page")
-    @ResponseBody
     @ApiOperation("分页查询宠物")
     public Result<PetPage<PetBO>> page(QueryPetDTO dto) {
 
@@ -33,7 +34,6 @@ public class PetController {
     }
 
     @PostMapping
-    @ResponseBody
     @ApiOperation("创建宠物信息")
     public Result<PetBO> create(@RequestBody CreatePetForm form) {
 
@@ -44,7 +44,6 @@ public class PetController {
 
 
     @PutMapping
-    @ResponseBody
     @ApiOperation("更新宠物信息")
     public Result<PetBO> update(@Validated @RequestBody UpdatePetForm form) {
 
@@ -54,7 +53,6 @@ public class PetController {
     }
 
     @GetMapping("{id}")
-    @ResponseBody
     @ApiOperation("查询宠物信息")
     public Result<PetBO> findById(@PathVariable Long id) {
 
@@ -62,12 +60,10 @@ public class PetController {
     }
 
     @DeleteMapping("{id}")
-    @ResponseBody
     @ApiOperation("删除宠物信息")
     public Result<Integer> remove(@PathVariable Long id) {
 
         return Result.success(petService.remove(id));
     }
-
 
 }
