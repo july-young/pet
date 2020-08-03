@@ -34,3 +34,4 @@ swagger:
   enabled: true
   version: "1.0"
   title: "养宠记帐"
+  base-package: "com.july.pet.controller"

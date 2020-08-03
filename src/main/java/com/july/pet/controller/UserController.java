@@ -7,6 +7,7 @@ import com.july.pet.dto.QueryUserDTO;
 import com.july.pet.form.CreateUserForm;
 import com.july.pet.form.UpdateUserForm;
 import com.july.pet.service.UserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
  * @date: 2020/7/31 10:30
  * @description:
  */
+@Api(tags = "用户信息")
 @Controller
 @RequestMapping("user")
 public class UserController {

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * @date: 2020/8/3 15:46
  * @description:
  */
-@Api("购买记录信息")
+@Api(tags = "购买记录信息")
 @RestController
 @RequestMapping("purchaseHistory")
 public class PurchaseHistoryController {

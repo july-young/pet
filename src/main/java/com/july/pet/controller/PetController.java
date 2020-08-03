@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * @date: 2020/7/31 11:01
  * @description: 宠物api
  */
-@Api("宠物信息")
+@Api(tags = "宠物信息")
 @RestController
 @RequestMapping("pet")
 public class PetController {
