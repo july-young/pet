@@ -20,7 +20,7 @@
         <!--<mysql-connector-java.version>8.0.11</mysql-connector-java.version>-->
         <joda.time.version>2.9.9</joda.time.version>
         <mybatis.version>2.1.1</mybatis.version>
-        <beanutils.version>1.8.3</beanutils.version>
+        <beanutils.version>1.9.4</beanutils.version>
         <pagehelper.version>1.2.3</pagehelper.version>
         <jsqlparser.version>0.9.1</jsqlparser.version>
         <commons-lang.version>2.6</commons-lang.version>
