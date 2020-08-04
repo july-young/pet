@@ -773,6 +773,186 @@ public class UserExample implements BaseExample {
             addCriterion("phone not between", value1, value2, "phone");
             return (Criteria) this;
         }
+
+        public Criteria andPetFoodConsumptionIsNull() {
+            addCriterion("pet_food_consumption is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionIsNotNull() {
+            addCriterion("pet_food_consumption is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionEqualTo(Integer value) {
+            addCriterion("pet_food_consumption =", value, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionNotEqualTo(Integer value) {
+            addCriterion("pet_food_consumption <>", value, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionGreaterThan(Integer value) {
+            addCriterion("pet_food_consumption >", value, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pet_food_consumption >=", value, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionLessThan(Integer value) {
+            addCriterion("pet_food_consumption <", value, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionLessThanOrEqualTo(Integer value) {
+            addCriterion("pet_food_consumption <=", value, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionIn(List<Integer> values) {
+            addCriterion("pet_food_consumption in", values, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionNotIn(List<Integer> values) {
+            addCriterion("pet_food_consumption not in", values, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionBetween(Integer value1, Integer value2) {
+            addCriterion("pet_food_consumption between", value1, value2, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetFoodConsumptionNotBetween(Integer value1, Integer value2) {
+            addCriterion("pet_food_consumption not between", value1, value2, "petFoodConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionIsNull() {
+            addCriterion("pet_litter_consumption is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionIsNotNull() {
+            addCriterion("pet_litter_consumption is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionEqualTo(Integer value) {
+            addCriterion("pet_litter_consumption =", value, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionNotEqualTo(Integer value) {
+            addCriterion("pet_litter_consumption <>", value, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionGreaterThan(Integer value) {
+            addCriterion("pet_litter_consumption >", value, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pet_litter_consumption >=", value, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionLessThan(Integer value) {
+            addCriterion("pet_litter_consumption <", value, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionLessThanOrEqualTo(Integer value) {
+            addCriterion("pet_litter_consumption <=", value, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionIn(List<Integer> values) {
+            addCriterion("pet_litter_consumption in", values, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionNotIn(List<Integer> values) {
+            addCriterion("pet_litter_consumption not in", values, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionBetween(Integer value1, Integer value2) {
+            addCriterion("pet_litter_consumption between", value1, value2, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetLitterConsumptionNotBetween(Integer value1, Integer value2) {
+            addCriterion("pet_litter_consumption not between", value1, value2, "petLitterConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionIsNull() {
+            addCriterion("pet_snack_consumption is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionIsNotNull() {
+            addCriterion("pet_snack_consumption is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionEqualTo(Integer value) {
+            addCriterion("pet_snack_consumption =", value, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionNotEqualTo(Integer value) {
+            addCriterion("pet_snack_consumption <>", value, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionGreaterThan(Integer value) {
+            addCriterion("pet_snack_consumption >", value, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pet_snack_consumption >=", value, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionLessThan(Integer value) {
+            addCriterion("pet_snack_consumption <", value, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionLessThanOrEqualTo(Integer value) {
+            addCriterion("pet_snack_consumption <=", value, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionIn(List<Integer> values) {
+            addCriterion("pet_snack_consumption in", values, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionNotIn(List<Integer> values) {
+            addCriterion("pet_snack_consumption not in", values, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionBetween(Integer value1, Integer value2) {
+            addCriterion("pet_snack_consumption between", value1, value2, "petSnackConsumption");
+            return (Criteria) this;
+        }
+
+        public Criteria andPetSnackConsumptionNotBetween(Integer value1, Integer value2) {
+            addCriterion("pet_snack_consumption not between", value1, value2, "petSnackConsumption");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

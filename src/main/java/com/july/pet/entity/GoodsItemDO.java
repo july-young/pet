@@ -26,6 +26,8 @@ public class GoodsItemDO extends BaseDO {
 
     private Integer price;
 
-    private Long recordId;
+    private Long historyId;
+
+    private String category;
 
 }

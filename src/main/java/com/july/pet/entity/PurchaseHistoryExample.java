@@ -923,6 +923,126 @@ public class PurchaseHistoryExample implements BaseExample {
             addCriterion("goods_id not between", value1, value2, "goodsId");
             return (Criteria) this;
         }
+
+        public Criteria andGmtOpenIsNull() {
+            addCriterion("gmt_open is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenIsNotNull() {
+            addCriterion("gmt_open is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenEqualTo(Date value) {
+            addCriterionForJDBCDate("gmt_open =", value, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenNotEqualTo(Date value) {
+            addCriterionForJDBCDate("gmt_open <>", value, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenGreaterThan(Date value) {
+            addCriterionForJDBCDate("gmt_open >", value, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("gmt_open >=", value, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenLessThan(Date value) {
+            addCriterionForJDBCDate("gmt_open <", value, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("gmt_open <=", value, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenIn(List<Date> values) {
+            addCriterionForJDBCDate("gmt_open in", values, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenNotIn(List<Date> values) {
+            addCriterionForJDBCDate("gmt_open not in", values, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("gmt_open between", value1, value2, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtOpenNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("gmt_open not between", value1, value2, "gmtOpen");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysIsNull() {
+            addCriterion("left_days is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysIsNotNull() {
+            addCriterion("left_days is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysEqualTo(Integer value) {
+            addCriterion("left_days =", value, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysNotEqualTo(Integer value) {
+            addCriterion("left_days <>", value, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysGreaterThan(Integer value) {
+            addCriterion("left_days >", value, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysGreaterThanOrEqualTo(Integer value) {
+            addCriterion("left_days >=", value, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysLessThan(Integer value) {
+            addCriterion("left_days <", value, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysLessThanOrEqualTo(Integer value) {
+            addCriterion("left_days <=", value, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysIn(List<Integer> values) {
+            addCriterion("left_days in", values, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysNotIn(List<Integer> values) {
+            addCriterion("left_days not in", values, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysBetween(Integer value1, Integer value2) {
+            addCriterion("left_days between", value1, value2, "leftDays");
+            return (Criteria) this;
+        }
+
+        public Criteria andLeftDaysNotBetween(Integer value1, Integer value2) {
+            addCriterion("left_days not between", value1, value2, "leftDays");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

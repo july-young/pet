@@ -42,7 +42,9 @@ public class PurchaseHistoryServiceImpl extends BaseService<PurchaseHistoryBO, P
     @Override
     public PetPage<PurchaseHistoryBO> query(QueryPurchaseHistoryDTO dto) {
 
-        return page(new PurchaseHistoryExample(), dto.getPage(), dto.getSize());
+        PurchaseHistoryExample purchaseHistoryExample = new PurchaseHistoryExample();
+        purchaseHistoryExample.createCriteria().andUserIdEqualTo(UserInfoUtil.getUserId());
+        return page(purchaseHistoryExample, dto.getPage(), dto.getSize());
     }
 
     @Override
@@ -60,7 +62,8 @@ public class PurchaseHistoryServiceImpl extends BaseService<PurchaseHistoryBO, P
         }
         Long userId = UserInfoUtil.getUserId();
 
-
+        bo.setUserId(userId);
+        PurchaseHistoryBO purchaseHistoryBO = this.add(bo);
         //下发Item
         List<GoodsItemBO> goodsItemCreateList = new ArrayList<>(bo.getAmount());
         for (int i = 0, len = bo.getAmount(); i < len; i++) {
@@ -72,13 +75,28 @@ public class PurchaseHistoryServiceImpl extends BaseService<PurchaseHistoryBO, P
             goodsItemBO.setPrice(bo.getPrice());
             goodsItemBO.setUserId(userId);
             goodsItemBO.setGoodsId(bo.getGoodsId());
+            goodsItemBO.setHistoryId(purchaseHistoryBO.getGoodsId());
             goodsItemCreateList.add(goodsItemBO);
         }
 
-
         goodsItemService.create(goodsItemCreateList);
 
-        bo.setUserId(userId);
-        return this.add(bo);
+        return purchaseHistoryBO;
+    }
+
+    @Override
+    public List<GoodsItemBO> queryGoodsItems(Long id) {
+
+        return goodsItemService.queryByHistoryId(id);
+    }
+
+    @Override
+    public void computeLeftDays() {
+        //todo
+        //1、查出最近的商品开袋信息
+        //2、gmtOpen - gmtLast 计算时间
+        //3、计算每日消耗量
+        //4、求出天数写入数据库
+        //5、展示天数计算交给前端，减轻服务器压力（gmtOpen + 天数 - now）
     }
 }

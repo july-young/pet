@@ -4,6 +4,5 @@ import com.july.pet.common.BaseMapper;
 import com.july.pet.entity.PurchaseHistoryDO;
 import com.july.pet.entity.PurchaseHistoryExample;
 
-
-public interface PurchaseHistoryMapper extends BaseMapper<PurchaseHistoryDO, PurchaseHistoryExample> {
+public interface PurchaseHistoryMapper extends BaseMapper<PurchaseHistoryDO,PurchaseHistoryExample> {
 }

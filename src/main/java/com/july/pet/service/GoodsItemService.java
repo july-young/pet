@@ -4,6 +4,7 @@ import com.july.pet.bo.GoodsItemBO;
 import com.july.pet.common.PetPage;
 import com.july.pet.dto.QueryGoodsItemDTO;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,4 +24,8 @@ public interface GoodsItemService {
     int remove(long id);
 
     void create(List<GoodsItemBO> goodsItemCreateList);
+
+    List<GoodsItemBO>  queryByHistoryId(Long id);
+
+    GoodsItemBO openGoodsItem(Long id, Date openDate);
 }

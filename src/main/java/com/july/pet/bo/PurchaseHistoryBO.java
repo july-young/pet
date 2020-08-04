@@ -33,4 +33,6 @@ public class PurchaseHistoryBO extends BaseBO {
     private GoodsBO goodsBO;
 
     private List<String> imgUrls;
+
+    private Date gmtEnd;
 }

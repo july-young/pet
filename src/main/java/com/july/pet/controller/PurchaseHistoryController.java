@@ -1,17 +1,21 @@
 package com.july.pet.controller;
 
+import com.july.pet.bo.GoodsItemBO;
 import com.july.pet.bo.PurchaseHistoryBO;
 import com.july.pet.common.BaseQueryPageDTO;
 import com.july.pet.common.PetPage;
 import com.july.pet.common.Result;
 import com.july.pet.dto.QueryPurchaseHistoryDTO;
 import com.july.pet.form.CreatePurchaseHistoryForm;
+import com.july.pet.service.GoodsItemService;
 import com.july.pet.service.PurchaseHistoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author: july
@@ -38,4 +42,9 @@ public class PurchaseHistoryController {
         return Result.success(purchaseHistoryService.create(form.toBO()));
     }
 
+    @GetMapping("items/{id}")
+    @ApiOperation("查询购买记录的商品")
+    public Result<List<GoodsItemBO>> items(@PathVariable Long id) {
+        return Result.success(purchaseHistoryService.queryGoodsItems(id));
+    }
 }

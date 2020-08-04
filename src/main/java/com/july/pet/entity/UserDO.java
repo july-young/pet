@@ -15,4 +15,11 @@ public class UserDO extends BaseDO {
     private String wxNum;
 
     private String phone;
+
+    private Integer petFoodConsumption;
+
+    private Integer petLitterConsumption;
+
+    private Integer petSnackConsumption;
+
 }

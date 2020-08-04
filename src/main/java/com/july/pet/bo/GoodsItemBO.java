@@ -32,4 +32,8 @@ public class GoodsItemBO extends BaseBO {
     private Long userId;
 
     private Integer price;
+
+    private Long historyId;
+
+    private String category;
 }

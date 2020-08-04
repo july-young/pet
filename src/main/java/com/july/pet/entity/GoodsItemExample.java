@@ -984,63 +984,133 @@ public class GoodsItemExample implements BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdIsNull() {
-            addCriterion("record_id is null");
+        public Criteria andHistoryIdIsNull() {
+            addCriterion("history_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdIsNotNull() {
-            addCriterion("record_id is not null");
+        public Criteria andHistoryIdIsNotNull() {
+            addCriterion("history_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdEqualTo(Long value) {
-            addCriterion("record_id =", value, "recordId");
+        public Criteria andHistoryIdEqualTo(Long value) {
+            addCriterion("history_id =", value, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdNotEqualTo(Long value) {
-            addCriterion("record_id <>", value, "recordId");
+        public Criteria andHistoryIdNotEqualTo(Long value) {
+            addCriterion("history_id <>", value, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdGreaterThan(Long value) {
-            addCriterion("record_id >", value, "recordId");
+        public Criteria andHistoryIdGreaterThan(Long value) {
+            addCriterion("history_id >", value, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("record_id >=", value, "recordId");
+        public Criteria andHistoryIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("history_id >=", value, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdLessThan(Long value) {
-            addCriterion("record_id <", value, "recordId");
+        public Criteria andHistoryIdLessThan(Long value) {
+            addCriterion("history_id <", value, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdLessThanOrEqualTo(Long value) {
-            addCriterion("record_id <=", value, "recordId");
+        public Criteria andHistoryIdLessThanOrEqualTo(Long value) {
+            addCriterion("history_id <=", value, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdIn(List<Long> values) {
-            addCriterion("record_id in", values, "recordId");
+        public Criteria andHistoryIdIn(List<Long> values) {
+            addCriterion("history_id in", values, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdNotIn(List<Long> values) {
-            addCriterion("record_id not in", values, "recordId");
+        public Criteria andHistoryIdNotIn(List<Long> values) {
+            addCriterion("history_id not in", values, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdBetween(Long value1, Long value2) {
-            addCriterion("record_id between", value1, value2, "recordId");
+        public Criteria andHistoryIdBetween(Long value1, Long value2) {
+            addCriterion("history_id between", value1, value2, "historyId");
             return (Criteria) this;
         }
 
-        public Criteria andRecordIdNotBetween(Long value1, Long value2) {
-            addCriterion("record_id not between", value1, value2, "recordId");
+        public Criteria andHistoryIdNotBetween(Long value1, Long value2) {
+            addCriterion("history_id not between", value1, value2, "historyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIsNull() {
+            addCriterion("category is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIsNotNull() {
+            addCriterion("category is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryEqualTo(String value) {
+            addCriterion("category =", value, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryNotEqualTo(String value) {
+            addCriterion("category <>", value, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryGreaterThan(String value) {
+            addCriterion("category >", value, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryGreaterThanOrEqualTo(String value) {
+            addCriterion("category >=", value, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryLessThan(String value) {
+            addCriterion("category <", value, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryLessThanOrEqualTo(String value) {
+            addCriterion("category <=", value, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryLike(String value) {
+            addCriterion("category like", value, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryNotLike(String value) {
+            addCriterion("category not like", value, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIn(List<String> values) {
+            addCriterion("category in", values, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryNotIn(List<String> values) {
+            addCriterion("category not in", values, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryBetween(String value1, String value2) {
+            addCriterion("category between", value1, value2, "category");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryNotBetween(String value1, String value2) {
+            addCriterion("category not between", value1, value2, "category");
             return (Criteria) this;
         }
     }

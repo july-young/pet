@@ -10,6 +10,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -90,7 +91,7 @@ public class BaseService<BO extends BaseBO, DO extends BaseDO, Converter extends
             baseDO.setDeleted(true);
             return mapper.updateByPrimaryKeySelective(baseDO);
         } catch (Exception e) {
-            log.error("remove error : " +JSON.toJSONString(e));
+            log.error("remove error : " + JSON.toJSONString(e));
             throw new PetException(PetExceptionEnum.DB_REMOVE_ERROR);
         }
     }
@@ -116,6 +117,13 @@ public class BaseService<BO extends BaseBO, DO extends BaseDO, Converter extends
         PageHelper.startPage(0, PetConstant.MAX_PAGE_SIZE);
         List<DO> list = mapper.selectByExample(example);
         return this.converter.toBO(list);
+    }
+
+    protected BO one(BaseExample example) {
+        PageHelper.startPage(0, 1);
+        List<DO> list = mapper.selectByExample(example);
+        List<BO> result = this.converter.toBO(list);
+        return CollectionUtils.isEmpty(result) ? null : result.get(0);
     }
 
 }

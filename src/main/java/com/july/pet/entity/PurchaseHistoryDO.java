@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class PurchaseHistoryDO  extends BaseDO {
+public class PurchaseHistoryDO extends BaseDO {
 
     private Integer price;
 
@@ -23,5 +23,9 @@ public class PurchaseHistoryDO  extends BaseDO {
     private Long userId;
 
     private Long goodsId;
+
+    private Date gmtOpen;
+
+    private Integer leftDays;
 
 }
